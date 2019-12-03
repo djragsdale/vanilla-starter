@@ -72,9 +72,15 @@ module.exports = {
     ],
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: './public/index.html',
-      inject: true,
-    }),
+    // Can I map the EJS templates over an array of pages and get an array of HtmlWebpackPlugins?
+    ...[
+      'index.html',
+      'about/index.html',
+    ]
+      .map((template) => new HtmlWebpackPlugin({
+        filename: template,
+        template: `public/${template}`,
+        inject: true,
+      })),
   ],
 };

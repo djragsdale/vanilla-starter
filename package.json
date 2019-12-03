@@ -4,7 +4,8 @@
   "description": "",
   "main": "js/index.js",
   "scripts": {
-    "build": "npm-run-all build:html build:js",
+    "build": "npm-run-all build:clean build:html build:js",
+    "build:clean": "rm -rf public/",
     "build:html": "DEBUG=* ejs-prerender",
     "build:js": "webpack --config webpack.prod.js --mode production",
     "lint": "eslint src/",

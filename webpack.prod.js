@@ -80,11 +80,15 @@ module.exports = {
     ],
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: './public/index.html',
-      // Inject the js bundle at the end of the body of the given template
-      inject: 'body',
-    }),
+    ...[
+      'index.html',
+      'about/index.html',
+    ]
+      .map((template) => new HtmlWebpackPlugin({
+        filename: template,
+        template: `public/${template}`,
+        inject: true,
+      })),
     // new CleanWebpackPlugin(buildPath),
     new FaviconsWebpackPlugin({
       // Your source logo
