@@ -1,12 +1,12 @@
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+// const CleanWebpackPlugin = require('clean-webpack-plugin');
 const cssNano = require('cssnano');
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const path = require('path');
 
-const buildPath = path.resolve(__dirname, 'dist');
+const buildPath = path.resolve(__dirname, 'public');
 
 module.exports = {
   devtool: 'source-map',
@@ -81,11 +81,11 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html',
+      template: './public/index.html',
       // Inject the js bundle at the end of the body of the given template
       inject: 'body',
     }),
-    new CleanWebpackPlugin(buildPath),
+    // new CleanWebpackPlugin(buildPath),
     new FaviconsWebpackPlugin({
       // Your source logo
       logo: './src/assets/icon.png',

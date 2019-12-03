@@ -6,7 +6,7 @@ module.exports = {
   entry: './src/js/index.js',
   devServer: {
     port: 8080,
-    contentBase: path.join(__dirname, 'dist'),
+    contentBase: path.join(__dirname, 'public'),
   },
   node: {
     fs: 'empty',
@@ -73,7 +73,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html',
+      template: './public/index.html',
       inject: true,
     }),
   ],
