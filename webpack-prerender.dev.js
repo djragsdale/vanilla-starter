@@ -1,5 +1,4 @@
-// const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { EjsPrerenderWebpackPlugin } = require('ejs-prerender');
+const EjsPrerenderWebpackPlugin = require('ejs-prerender-webpack-plugin');
 const path = require('path');
 
 module.exports = {
