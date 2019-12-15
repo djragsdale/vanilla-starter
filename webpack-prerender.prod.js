@@ -1,5 +1,6 @@
 // const CleanWebpackPlugin = require('clean-webpack-plugin');
 const cssNano = require('cssnano');
+const EjsPrerenderWebpackPlugin = require('ejs-prerender-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -98,15 +99,16 @@ module.exports = {
     ],
   },
   plugins: [
-    ...[
-      'index.html',
-      'about/index.html',
-    ]
-      .map((template) => new HtmlWebpackPlugin({
-        filename: template,
-        template: `public/${template}`,
-        inject: true,
-      })),
+    // ...[
+    //   'index.html',
+    //   'about/index.html',
+    // ]
+    //   .map((template) => new HtmlWebpackPlugin({
+    //     filename: template,
+    //     template: `public/${template}`,
+    //     inject: true,
+    //   })),
+    new EjsPrerenderWebpackPlugin(),
     // new CleanWebpackPlugin(buildPath),
     // new FaviconsWebpackPlugin({
     //   // Your source logo

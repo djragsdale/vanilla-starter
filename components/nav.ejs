@@ -1,0 +1,9 @@
+<nav>
+  <%
+    const currentRoute = (desiredRoute) => route === desiredRoute ? 'current' : '';
+  %>
+  <ul>
+    <li class="<%= currentRoute('/') %>"><a href="/">Home</a></li>
+    <li class="<%= currentRoute('/about') %>"><a href="/about">About</a></li>
+  </ul>
+</nav>

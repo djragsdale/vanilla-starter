@@ -1,4 +1,5 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+// const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { EjsPrerenderWebpackPlugin } = require('ejs-prerender');
 const path = require('path');
 
 module.exports = {
@@ -72,14 +73,16 @@ module.exports = {
     ],
   },
   plugins: [
-    ...[
-      'index.html',
-      'about/index.html',
-    ]
-      .map((template) => new HtmlWebpackPlugin({
-        filename: template,
-        template: `public/${template}`,
-        inject: true,
-      })),
+    // // Can I map the EJS templates over an array of pages and get an array of HtmlWebpackPlugins?
+    // ...[
+    //   'index.html',
+    //   'about/index.html',
+    // ]
+    //   .map((template) => new HtmlWebpackPlugin({
+    //     filename: template,
+    //     template: `public/${template}`,
+    //     inject: true,
+    //   })),
+    new EjsPrerenderWebpackPlugin(),
   ],
 };

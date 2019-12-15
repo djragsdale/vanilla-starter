@@ -5,3 +5,32 @@ body {
   background: $bg-color;
   color: $fg-color;
 }
+
+nav {
+  width: 100%;
+
+  ul {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: 1024px) {
+      flex-direction: row;
+    }
+  }
+
+  li {
+    padding: .5rem;
+    list-style: none;
+
+    &.current {
+      border-bottom-style: solid;
+    }
+
+    a {
+      padding: .5rem;
+      color: $fg-color;
+      text-decoration: none;
+    }
+  }
+}
